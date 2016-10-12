@@ -1,0 +1,27 @@
+{
+  "name": "socialchat-pwa",
+  "version": "0.0.1",
+  "description": "Social Chat PWA",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/almandsky/socialchat-pwa.git"
+  },
+  "keywords": [
+    "Social",
+    "Chat",
+    "PWA"
+  ],
+  "author": "almandsky",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/almandsky/socialchat-pwa/issues"
+  },
+  "homepage": "https://github.com/almandsky/socialchat-pwa#readme",
+  "dependencies": {
+    "mocha": "^3.1.2"
+  }
+}
