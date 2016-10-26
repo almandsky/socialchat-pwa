@@ -6,17 +6,37 @@
   <meta name="author" content="Sky Chen">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
   <meta name="theme-color" content="#FF00FF">
-  <title>Swipeable Cards</title>
-  <link rel="stylesheet" href="cards.css">
+  <title>Social Chat</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
+  <div class="header">
+    <button class="js-menu-show header__menu-toggle material-icons">menu</button>
+  </div>
+  <aside class="js-side-nav side-nav">
+    <nav class="js-side-nav-container side-nav__container">
+      <button class="js-menu-hide side-nav__hide material-icons">close</button>
+      <header class="side-nav__header">
+        Side Nav
+      </header>
+      <ul class="side-nav__content">
+        <li>One</li>
+        <li>Two</li>
+        <li>Three</li>
+        <li>Four</li>
+      </ul>
+    </nav>
+  </aside>
   <div class="card-container">
     <div class="card">Card One</div>
     <div class="card">Card Two</div>
     <div class="card">Card Three</div>
     <div class="card">Card Four</div>
   </div>
-  <script src="cards.js"></script>
+  <script src='./detabinator.js'></script>
+  <script src="./cards.js"></script>
+  <script src="./side-nav.js"></script>
 </body>
 </html>
 
