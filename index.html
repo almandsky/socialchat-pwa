@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="author" content="Sky Chen">
-  <meta name="viewport" content="width=device-width,minimum-scale=1">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
   <meta name="theme-color" content="#FF00FF">
   <title>Social Chat</title>
   <link rel="stylesheet" href="style.css">
@@ -21,22 +21,34 @@
         Side Nav
       </header>
       <ul class="side-nav__content">
-        <li>One</li>
-        <li>Two</li>
-        <li>Three</li>
-        <li>Four</li>
+        <li><a class='nav-link' href="/">Home</a></li>
+        <li><a class='nav-link' href="/about/">About</a></li>
+        <li><a class='nav-link' href="/contact/">Contact</a></li>
+        <li><a class='nav-link' href="/misc/">Misc</a></li>
       </ul>
     </nav>
   </aside>
-  <div class="card-container">
+  <!--div class="card-container">
     <div class="card">Card One</div>
     <div class="card">Card Two</div>
     <div class="card">Card Three</div>
     <div class="card">Card Four</div>
-  </div>
+  </div-->
+  <sc-view route="^/$" class="view-home">Home</sc-view>
+  <sc-view route="^/about/(.*)" class="view-about">About</sc-view>
+  <sc-view route="^/contact/(.*)" class="view-contact">Contact</sc-view>
+  <sc-view route="^/misc/(.*)" class="view-misc">Misc</sc-view>
+  <sc-router></sc-router>
   <script src='./detabinator.js'></script>
   <script src="./cards.js"></script>
+  <script src="./sc-view.js"></script>
+  <script src="./router.js"></script>
   <script src="./side-nav.js"></script>
+  <script type="text/javascript">
+    const router = document.querySelector('sc-router');
+
+  </script>
+
 </body>
 </html>
 
