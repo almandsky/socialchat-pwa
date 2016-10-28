@@ -1,36 +1,79 @@
 'use strict';
 
 class SCView extends HTMLElement {
+
+  createdCallback() {
+    this._view = null;
+    this._isRemote = (this.getAttribute('remote') !== null);
+  }
+
   get route () {
     return this.getAttribute('route') || null;
   }
 
-  in(data) {
+  _hideSpinner () {
+    this.classList.remove('pending');
+  }
+
+  _showSpinner () {
+    this.classList.add('pending');
+  }
+
+  _loadView (data) {
+    const delay = 1000 + Math.floor(Math.random() * 2000)
+    const spinnerTimeout = setTimeout(_ => this._showSpinner(), 500);
+    this._view = new DocumentFragment();
+
+    const xhr = new XMLHttpRequest();
+    xhr.onload = evt => {
+
+      const newDoc = evt.target.response;
+      const newView = newDoc.querySelector('sc-view.visible');
+      
+      newView.childNodes.forEach(node => {
+        this._view.appendChild(node);
+      });
+
+      this.appendChild(this._view);
+      clearTimeout(spinnerTimeout);
+      this._hideSpinner();
+    }
+
+    xhr.responseType = 'document';
+    xhr.open('GET', `${data[0]}?delay=${delay}`);
+    xhr.send();
+  }
+
+  in (data) {
+    if (this._isRemote && !this._view) {
+      this._loadView(data);
+    }
+
     return new Promise((resolve, reject) => {
       const onTransitionEnd = () => {
         this.removeEventListener('transitionend', onTransitionEnd);
         resolve();
-      }
+      };
 
       this.classList.add('visible');
       this.addEventListener('transitionend', onTransitionEnd);
     });
   }
 
-  out(data) {
-
+  out (data) {
     return new Promise((resolve, reject) => {
       const onTransitionEnd = () => {
         this.removeEventListener('transitionend', onTransitionEnd);
         resolve();
-      }
+      };
 
       this.classList.remove('visible');
       this.addEventListener('transitionend', onTransitionEnd);
     });
   }
 
-  update(data) {
+  update (data) {
+    console.log(data);
     return Promise.resolve();
   }
 }
