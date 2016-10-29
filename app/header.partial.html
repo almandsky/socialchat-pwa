@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
   <meta name="theme-color" content="#FF00FF">
   <title>Social Chat</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/style.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
@@ -28,24 +28,15 @@
       </ul>
     </nav>
   </aside>
-  <!--div class="card-container">
-    <div class="card">Card One</div>
-    <div class="card">Card Two</div>
-    <div class="card">Card Three</div>
-    <div class="card">Card Four</div>
-  </div-->
-  <sc-view route="^/$" class="view-home visible">Home</sc-view>
+  {{#ifNotEq item ""}}
+  <sc-view remote route="^/$" class="view-home"></sc-view>
+  {{/ifNotEq}}
+  {{#ifNotEq item "about"}}
   <sc-view remote route="^/about/(.*)" class="view-about"></sc-view>
+  {{/ifNotEq}}
+  {{#ifNotEq item "contact"}}
   <sc-view remote route="^/contact/(.*)" class="view-contact"></sc-view>
+  {{/ifNotEq}}
+  {{#ifNotEq item "misc"}}
   <sc-view remote route="^/misc/(.*)" class="view-misc"></sc-view>
-  <sc-router></sc-router>
-  <script src='./detabinator.js'></script>
-  <!--script src="./cards.js"></script-->
-  <script src="./sc-view.js"></script>
-  <script src="./router.js"></script>
-  <script src="./side-nav.js"></script>
-
-
-</body>
-</html>
-
+  {{/ifNotEq}}
