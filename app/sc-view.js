@@ -20,7 +20,6 @@ class SCView extends HTMLElement {
   }
 
   _loadView (data) {
-    const delay = 1000 + Math.floor(Math.random() * 2000)
     const spinnerTimeout = setTimeout(_ => this._showSpinner(), 500);
     this._view = new DocumentFragment();
 
@@ -40,7 +39,7 @@ class SCView extends HTMLElement {
     }
 
     xhr.responseType = 'document';
-    xhr.open('GET', `${data[0]}?delay=${delay}`);
+    xhr.open('GET', `${data[0]}?partial`);
     xhr.send();
   }
 

@@ -22,6 +22,11 @@
   },
   "homepage": "https://github.com/almandsky/socialchat-pwa#readme",
   "dependencies": {
-    "mocha": "^3.1.2"
+    "express": "4.14.0",
+    "handlebars": "4.0.5",
+    "http2": "3.3.6",
+    "mocha": "^3.1.2",
+    "mz": "2.4.0",
+    "spdy": "3.4.4"
   }
 }
