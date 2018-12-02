@@ -2,7 +2,8 @@
 
 class SCView extends HTMLElement {
 
-  createdCallback() {
+  constructor() {
+    super();
     this._view = null;
     this._isRemote = (this.getAttribute('remote') !== null);
   }
@@ -77,4 +78,4 @@ class SCView extends HTMLElement {
   }
 }
 
-document.registerElement('sc-view', SCView);
+customElements.define('sc-view', SCView);
