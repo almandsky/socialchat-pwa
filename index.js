@@ -5,7 +5,7 @@ const fs = require('mz/fs');
 const handlebars = require('handlebars');
 const crypto = require('crypto')
 
-const port = 8081;
+const port = 3000;
 const app = express();
 
 handlebars.registerHelper('ifNotEq', function(a, b, opts) {
